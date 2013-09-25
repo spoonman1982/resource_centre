@@ -4,9 +4,8 @@ class PagesController < ApplicationController
   def index
     @pages = Page.all
 
-    @pages.each do |page|
-      @ancester = (Page.find(page)).name
-    end
+    #order("created_at").first
+
   end
 
   # GET /pages/1

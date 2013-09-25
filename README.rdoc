@@ -1,3 +1,4 @@
  CMS project for local resource centre
 
 13/08/13 Initial commit - Used Smart Navigation so admin user may add new pages
+

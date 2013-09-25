@@ -1,0 +1,48 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*Home*/
+.slider{
+	width:652px;
+	height:355px;
+	overflow:hidden;
+	position: relative;
+	}
+	
+.slider img{
+	padding: 10px;  
+    border:  1px solid #ccc;  
+    background-color: #eee; 
+	width:630px;
+	height:335px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	}
+
+/*News Page*/
+.list_posts_style ul {
+list-style: none;
+background: #fafad2;
+width: 460px;
+padding: 10px;
+}
+
+ul, menu {
+display: block;
+list-style-type: disc;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 40px;
+}
+ul span {
+font-size: 12px;
+color: graytext;
+font-style: italic;
+}
+
+.wrapper-home{ width:635px; padding: 10px }
+.content-home{ background: #fafad2; width:612px; padding-left: 10px; }

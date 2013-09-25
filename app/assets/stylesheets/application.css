@@ -16,12 +16,17 @@
   margin: 0 auto;
   border: 1px solid #000000;
   text-align: left;
-    background-color: #FBFBFB;
+  background-color: #FBFBFB;
+}
+
+#wrapper{ overflow: hidden;
+    position: relative;
+
 }
 
 #background_container{
+
     width: 850px;
-    /*background: green;*/
     margin: 0;
     background-image: url("background2.png");
     background-repeat: repeat-y;
@@ -31,4 +36,58 @@
 	padding: 10px 10px 10px 10px;
 	border-radius: 10px;
 
+}
+#col1{
+  min-height:300px;
+  background-color: #fff;
+  width: 100px;
+  margin-right: 5px;
+  padding:0 18px 0 18px;
+}
+
+#col2{
+  min-height:300px;
+  background-color: #DDD;
+  width: 480px;
+  margin-right: 5px;
+  padding:0 18px 0 18px;
+}
+#home{
+  min-height:400px;
+  background-color: #DDD;
+  width: 655px;
+  margin-right: 5px;
+  padding:0;
+}
+
+#col3{
+  float: right;
+  min-height:300px;
+  background-color: #666;
+  width: 150px;
+  padding:0 18px 0 18px;
+}
+#footer{
+  margin: auto;
+  width: 850px;
+  min-height: 150px;
+}
+
+#sub_nav {
+  margin:0;
+  padding:0;}
+
+#sub_nav ul{
+  display:block;
+  list-style-type: disc;
+  margin:0;
+  padding:0;}
+
+#sub_nav ul li{
+  list-style: square;
+}
+
+.column{
+  float: left;
+  /*margin-bottom: 10px*/
 }

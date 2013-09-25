@@ -1,0 +1,26 @@
+<div id="home" class="column">
+
+<div class="slider" style="margin-bottom:10px"> 
+	<%= image_tag  'old_and_young.jpg', :alt => "young and old" %> 
+	<%= image_tag  'old_times.jpg', :alt => "kells old picture" %>
+	<%= image_tag  'parade.jpg', :alt => "parade" %> 
+	<%= image_tag  'santa.jpg', :alt => "santa" %>
+</div>
+<div class="wrapper-home">
+ <div class="content-home rounded">
+<h3>Latest News</h3>
+   <% if @news_item.present? %>
+   <strong><%= @news_item.title %></strong><br>
+   <span style="font-size: 12px; color: graytext; font-style: italic;"><%= (@news_item.created_at).strftime("Posted  on %m/%d/%Y") %></span><br>
+   <p><%= @news_item.content%></p>
+   <% else %>
+   <strong><p>No news today</p></strong>
+   <% end %>
+ </div>
+<br>
+<p>One more time</p>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fkellsprc%3Ffref%3Dts&amp;width=292&amp;height=590&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:590px;" allowTransparency="true"></iframe>
+<p>This works</p>
+<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fkellsprc%3Ffref%3Dts&amp;width=450&amp;height=80&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;send=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+</div><!-- wrapper-home -->
+</div>

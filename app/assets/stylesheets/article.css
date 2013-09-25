@@ -1,0 +1,12 @@
+.list_posts_style ul{
+    list-style: none;
+    background: #fafad2;
+    width:350px; padding: 10px
+}
+
+.list_posts_style ul span{
+    font-size: 12px;
+    color: graytext;
+    font-style: italic;
+
+}

@@ -1,6 +1,10 @@
 ResourceCentre::Application.routes.draw do
   
-  root to: 'pages#index'
+  
+  root to: 'static_pages#home'
+  get "Contact_Us", to: "static_pages#contact_us", as: "contact"
+  get 'News', to: 'news#index', as: 'index_news'
+  resources :news
   resources :page_contents
   resources :pages
 
@@ -54,7 +58,7 @@ ResourceCentre::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  # root :to => 'pages#index'
 
   # See how all your routes lay out with "rake routes"
 

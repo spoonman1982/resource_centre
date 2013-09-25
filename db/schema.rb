@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130913133328) do
+ActiveRecord::Schema.define(:version => 20130917130943) do
 
   create_table "line_items", :force => true do |t|
     t.integer  "page_id"
@@ -20,12 +20,21 @@ ActiveRecord::Schema.define(:version => 20130913133328) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.string   "content"
+    t.string   "news_image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "page_contents", :force => true do |t|
     t.string   "title"
     t.string   "content"
     t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "page_id"
   end
 
   create_table "pages", :force => true do |t|
@@ -34,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20130913133328) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "ancestry"
+    t.string   "content"
+    t.string   "img_main"
   end
 
   add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"

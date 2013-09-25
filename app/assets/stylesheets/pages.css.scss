@@ -5,7 +5,7 @@
 body { /* quick hack to get things looking nicer */
   margin: 0;
   padding: 0;
-  padding-left: 40px;
+  padding-left: 20px;
   padding-top: 20px;
   background-image: url("bg_tile.jpg");
   background-repeat: repeat;
@@ -21,7 +21,6 @@ body { /* quick hack to get things looking nicer */
 #menu {
   background-image: url("KPRC_banner.png");
   background-repeat: no-repeat;
-  /*background: #DDDDDD; */
   height: 199px;
   width: 850px;
   /*padding: 0 10px 0 20px; this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
@@ -32,7 +31,7 @@ body { /* quick hack to get things looking nicer */
   margin-left: -50px;
   margin-bottom: 30px;*/
   padding: 0;
-  padding-left: 30px;
+  padding-left: 10px;
   /*border-bottom: solid 1px black;
   height: 50px;
   background-color: #3E5F7F;
@@ -44,7 +43,7 @@ body { /* quick hack to get things looking nicer */
   background: linear-gradient(to bottom,  #3E5F7F 0%,#3E5F7F 70%,#273D51 100%); */
   li {
     margin-top: 168px;
-    margin-left: 20px;
+    margin-left: 7px;
     padding: 0;
     float: left;
     a {
@@ -75,7 +74,6 @@ body { /* quick hack to get things looking nicer */
     }
   }
 }
-
 #submenu > ul {
   float: left;
   list-style: none;
@@ -92,7 +90,7 @@ body { /* quick hack to get things looking nicer */
   }
   ul {
     font-size: 11px;
-    margin: 0;
+    margin: 100px;
     padding-left: 16px;
     li {
       margin: 5px 0;

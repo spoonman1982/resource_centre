@@ -1,9 +1,9 @@
 class PageContent < ActiveRecord::Base
-  attr_accessible :content, :image, :title
+  attr_accessible :content, :image, :page_id, :title
 
   mount_uploader :image, ImageUploader
 
-  has_many :line_items
-  has_many :pages, through: :line_items
+  belongs_to :page
+  #has_many :pages, through: :line_items
 
 end

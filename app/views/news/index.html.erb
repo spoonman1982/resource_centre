@@ -1,0 +1,63 @@
+<!--<ul>
+<%# @newses.each do |news|%>
+<li style="background-color:#DDD; max-width:400px; display:block"><h3><%#= news.title %></h3><br/>
+	<p><%#= news.content%></p></li>
+	<hr/><br/>
+<%# end %>
+</ul>-->
+<div id="col2" class="column">
+<% content_for :title, "Community News" %>
+
+<br>
+
+<%# if admin_user %>
+
+<fieldset class="rounded formarea">
+<%= form_for @news, :html =>  {:class => "form-horizontal"} do |f| %>
+  <% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
+
+      <ul>
+      <% @news.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="control-group">
+      <strong><h3>Enter News Article</h3></strong>
+      <%= f.label :title, "Article Title", class: "control-label" %>
+          <div class="controls">
+        <%= f.text_field :title, class: "input-xlarge" %></div></div>
+         <div class="control-group">
+      <%= f.label :content, "Content", class: "control-label" %>
+          <div class="controls">
+        <%= f.text_area :content, :rows => '7', class: "input-xlarge" %></div></div>
+
+            <div class="control-group"> <div class="controls">
+      <%= f.submit "Submit", class: "btn btn-primary btn-large" %> </div></div>
+
+<% end %>
+ </fieldset>
+
+
+<br>
+<hr>
+<div class="list_posts_style">
+<ul class="rounded">
+<% News.all.each  do |news| %>
+ <li> <strong><%= news.title %></strong><br>
+   <span ><%= (news.created_at).strftime("Posted  on %m/%d/%Y") %></span><br>
+   <p><%= news.content%></p>
+  <%#if admin_user %>
+   <%= button_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
+   <br>
+<%# end %>
+   <hr>
+ </li>
+ <% end %>
+ </ul>
+</div>
+</div>

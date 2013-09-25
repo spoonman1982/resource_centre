@@ -4,11 +4,41 @@
   <title><%= content_for?(:title) ? yield(:title) : "CMS" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="cycle_plugin.js"></script>
+  <script type="text/javascript"> $(document).ready(function() {
+    $('.slider').cycle({
+		fx: 'scrollLeft', 
+    	speed:    1000, 
+    	timeout:  5000 
+		});
+	});
+</script>
   <%= csrf_meta_tags %>
 </head>
-<body>	
+<body>
 	<div id="container" class="rounded">
-		<%= yield %>
+		<% unless params[:action] == "index" && params[:controller] == "pages"%>
+		<ul id="menu">
+			<li><%= link_to 'Home', root_path %></li>
+			<li><%= link_to 'News', index_news_path %></li>
+		  <% Page.roots.each do |page| %>
+		    <li><%= link_to page.name, page %></li>
+		    <%#, class: ("active" if @page.root == page)%>
+		  <% end %>
+		  	<li><%= link_to 'Contact Us', contact_path %><li>
+		</ul>
+		<% end %>
+		<div ="wapper">
+		<div id="background_container">
+			<% unless params[:action] == 'home'%>
+			<%= render "layouts/left_hand_column"%>
+			<% end %>
+			<%= yield %>
+			<%= render "layouts/right_hand_column"%>
+		</div>
+		</div>
+		<%= render "layouts/footer"%>
 	</div>
+
 </body>
 </html>
