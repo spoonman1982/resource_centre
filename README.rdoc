@@ -1,4 +1,5 @@
  CMS project for local resource centre
 
-13/08/13 Initial commit - Used Smart Navigation so admin user may add new pages
+13/09/13 Initial commit - Used Smart Navigation so admin user may add new pages
+25/09/13   - Merged page_content - Includes Image Slider and News Feed
 
