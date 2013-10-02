@@ -1,7 +1,21 @@
-.list_posts_style ul{
+.list_posts_style {
+	background-color: #fafad2;
+
+}
+
+
+.list_posts_style ul {
     list-style: none;
-    background: #fafad2;
-    width:350px; padding: 10px
+    background-color: #fafad2;
+    max-width: 440px;
+    padding: 10px;
+}
+
+.list_posts_style ul li{
+	display: block;
+	position: relative;
+	margin: 0;
+	width: 300px;
 }
 
 .list_posts_style ul span{
@@ -9,4 +23,11 @@
     color: graytext;
     font-style: italic;
 
+}
+
+
+.list_posts_style img{
+	float: right;
+	margin-right: 10px;
+	max-width: 200px;
 }

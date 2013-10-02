@@ -6,58 +6,73 @@
 <%# end %>
 </ul>-->
 <div id="col2" class="column">
-<% content_for :title, "Community News" %>
+  <% content_for :title, "Community News" %>
 
-<br>
+  <br>
 
-<%# if admin_user %>
+  <%# if admin_user %>
 
-<fieldset class="rounded formarea">
-<%= form_for @news, :html =>  {:class => "form-horizontal"} do |f| %>
-  <% if @news.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
+<fieldset class="rounded">
+    <%= form_for @news, :html =>  {:class => "form-horizontal", :multipart => true } do |f| %>
+        <% if @news.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
 
-      <ul>
-      <% @news.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+            <ul>
+            <% @news.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-    <div class="control-group">
-      <strong><h3>Enter News Article</h3></strong>
-      <%= f.label :title, "Article Title", class: "control-label" %>
-          <div class="controls">
+      <div class="control-group">
+        
+        <strong><h3>Enter News Article</h3></strong>
+        
+        <%= f.label :title, "Article Title", class: "control-label" %>
+            <div class="controls">
         <%= f.text_field :title, class: "input-xlarge" %></div></div>
-         <div class="control-group">
-      <%= f.label :content, "Content", class: "control-label" %>
-          <div class="controls">
+           <div class="control-group">
+        
+        <%= f.label :content, "Content", class: "control-label" %>
+            <div class="controls">
         <%= f.text_area :content, :rows => '7', class: "input-xlarge" %></div></div>
-
+        
+        <%= f.label :news_image, "Image", class: "control-label" %>
+            <div class="controls">
+        <%= f.file_field :news_image, class: "input-xlarge" %></div>
+          <br/>
             <div class="control-group"> <div class="controls">
-      <%= f.submit "Submit", class: "btn btn-primary btn-large" %> </div></div>
+        <%= f.submit "Submit", class: "btn btn-primary btn-large" %> </div></div>
 
-<% end %>
- </fieldset>
-
-
-<br>
-<hr>
-<div class="list_posts_style">
-<ul class="rounded">
-<% News.all.each  do |news| %>
- <li> <strong><%= news.title %></strong><br>
-   <span ><%= (news.created_at).strftime("Posted  on %m/%d/%Y") %></span><br>
-   <p><%= news.content%></p>
-  <%#if admin_user %>
-   <%= button_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
-   <br>
-<%# end %>
-   <hr>
- </li>
- <% end %>
+    <% end %>
+  </fieldset>
+  <br/>
+  <h3>Latest News</h3>
+  <div class="rounded list_posts_style" >
+  <ul>
+    <% @news_items.each do |news_item|%>
+    <% if news_item.present? %>
+      <div style="float:left">
+        <strong><%= news_item.title %></strong><br/>
+        <span style="font-size: 12px; color: graytext; font-style: italic;"><%= (news_item.created_at).strftime("Posted  on %m/%d/%Y") %></span><br/>
+    </div>
+        <% if news_item.news_image? %>
+        <%= image_tag news_item.news_image_url(:thumb).to_s %>
+        <% else %>
+        <%= image_tag "old_and_young.jpg", :width => 200 %>
+        <%end%>
+        <div style="clear:both"></div>
+        <p><%= news_item.content%></p>
+        <%= button_to 'Destroy', news_item, method: :delete, data: { confirm: 'Are you sure?' } %>
+     <br/>
+     <hr/>
+     <% else %>
+        <strong><p>No news today</p></strong>
+     <% end %>
+   <%end%>
  </ul>
 </div>
+
 </div>

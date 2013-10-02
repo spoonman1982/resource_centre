@@ -1,10 +1,11 @@
 # encoding: utf-8
 
 class NewsImageUploader < CarrierWave::Uploader::Base
-
+  
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-   include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+  MiniMagick.processor = :gm
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -31,9 +32,9 @@ class NewsImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  # Create different versions of your uploaded files:
+   #Create different versions of your uploaded files:
    version :thumb do
-     process :scale => [50, 50]
+     process :resize_to_fit => [250, 400]
    end
 
   # Add a white list of extensions which are allowed to be uploaded.

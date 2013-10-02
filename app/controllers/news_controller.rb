@@ -1,15 +1,10 @@
 class NewsController < ApplicationController
 
 	def index
-	  if 1 == 1
-	    @news = News.new
+	  
+	@news = News.new 
+    @news_items = News.all
 
-	    respond_to do |format|
-	      format.html # index.html.erb
-	      format.json { render json: @news }
-	    end
-	  end
-    @newses = News.all
 	end
 
 	def new
